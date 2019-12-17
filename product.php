@@ -58,75 +58,8 @@
     <div class = "product">
       <?php
         include_once 'loadProduct.php';
+        loadAll();
       ?>
-        <!--  Will have the php populate page. Will remove this later
-
-      <div class="row">
-        <div class="col-sm">
-          <div class="card border border-dark" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="viewProduct.html" class="btn btn-primary">View Product</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="card border border-dark" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="viewProduct.html" class="btn btn-primary">View Product</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="card border border-dark" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="viewProduct.html" class="btn btn-primary">View Product</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-sm">
-          <div class="card border border-dark" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="viewProduct.html" class="btn btn-primary">View Product</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="card border border-dark" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="viewProduct.html" class="btn btn-primary">View Product</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="card border border-dark" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="viewProduct.html" class="btn btn-primary">View Product</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    -->
     </div>
   </div>
   <br>
