@@ -1,12 +1,25 @@
 .carousel-inner > .item {
-  height: 50vh;
+  width: 100%;
+  height: 300px;
 }
 
+.body {
+  background-color: rgb(236, 236, 236);
+}
 .logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+}
+
+.productText{
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+#header {
+  background-color: rgb(236, 236, 236);
 }
 
 .card-body {
