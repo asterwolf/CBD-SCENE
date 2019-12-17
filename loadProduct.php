@@ -36,6 +36,7 @@ try {
             // Row div end
             if (($numOfColumns % 3) === 0) {
                 echo "</div>";
+                echo "<br";
             }
             writeMsg("RESULT", $row['name']);
         }
