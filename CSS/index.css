@@ -20,7 +20,6 @@
 }
 
 .about{
-
     padding: 25px 25px 25px 25px;
     text-align: center;
     background-color: white;
@@ -28,4 +27,11 @@
 
 .card-body {
   text-align: center;
+}
+
+.product img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
