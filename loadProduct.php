@@ -50,17 +50,20 @@ function loadAll($option){
         if ($conn){
             // echo "Connected successfully\n";
 
-            $sql = "SELECT * FROM product ORDER BY ";
+            $sql = "SELECT * FROM product ";
 
             switch ($option) {
-                case 'DESC':
-                    $sql .= "price DESC";
+                case 'drops':
+                case 'edible':
+                case 'smoke':
+                    $sql .= "name WHERE type='" . $option . "'";
                     break;
+                case 'DESC':
                 case 'ASC':
-                    $sql .= "price ASC";
+                    $sql .= "ORDER BY price " . $option;
                     break;
                 default :
-                    $sql .= "name";
+                    $sql .= "ORDER BY name";
             }
             writeMsg("QUERY", $option);
 
