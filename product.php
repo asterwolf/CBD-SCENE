@@ -16,7 +16,7 @@
 
   </head>
   <body class ="body">
-    <div class="container">
+    <div class="container home">
       <div class="jumbotron">
         <img class = "logo" src = "./images/logo.png"> </img>
       </div>
@@ -29,15 +29,15 @@
             <a class="nav-link" href="./about.html">About</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Product</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="./product.php"> All Product</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="?sort=drops">Drops</a>
-              <a class="dropdown-item" href="?sort=smoke">Smoke</a>
-              <a class="dropdown-item" href="?sort=edibles">Edibles</a>
-            </div>
-          </li>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Product</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="./product.php?sort='name'">All Product</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="./product.php?sort=drops">Drops</a>
+            <a class="dropdown-item" href="./product.php?sort=smoke">Smoke</a>
+            <a class="dropdown-item" href="./product.php?sort=edible">Edibles</a>
+          </div>
+        </li>
           <li class="nav-item">
             <a class="nav-link " href="./contact.html">Contact</a>
           </li>
