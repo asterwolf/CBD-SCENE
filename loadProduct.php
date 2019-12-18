@@ -1,5 +1,5 @@
  <?php
-include('../config.php');
+include('config.php');
 
 // TODO: create function that eliminates special characters to find image name
 function getImage($productName){}

@@ -14,28 +14,29 @@
   width: 100%;
 }
 
-.productText{
-    text-align: center;
-    padding-bottom: 30px;
+.productText {
+  text-align: center;
+  padding-bottom: 30px;
 }
-.quiz{
-    padding: 25px 25px 25px 25px;
-    text-align: center;
+.quiz {
+  padding: 25px 25px 25px 25px;
+  text-align: center;
 }
 
-.about{
-    padding: 25px 25px 25px 25px;
-    text-align: center;
-    background-color: white;
+.about {
+  padding: 25px 25px 25px 25px;
+  text-align: center;
+  background-color: white;
 }
 
 .card-body {
   text-align: center;
 }
 
-.product img{
+.product img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  padding-top: 15px;
 }
