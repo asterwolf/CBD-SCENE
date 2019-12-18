@@ -78,6 +78,12 @@
         </form>
         <br>
         <h2> Remove Product</h2>
+        <div class = "product">
+          <?php
+            include_once 'loadProduct.php';
+            loadAll($_GET['sort']);
+          ?>
+        </div>
       </div>
       <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         <h2> Orders </h2>
