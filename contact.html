@@ -17,8 +17,8 @@
 
 </head>
   <body class="body">
-  <div class="container">
-    <div class="jumbotron">
+  <div class="container home">
+    <div class="jumbotron" style="background-color:rgb(249,249,249);">
       <img class = "logo" src = "./images/logo.png"> </img>
     </div>
     <div class = "navigation">
@@ -30,15 +30,15 @@
           <a class="nav-link" href="./about.html">About</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Product</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="./product.php">All Product</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Drops</a>
-            <a class="dropdown-item" href="#">Smoke</a>
-            <a class="dropdown-item" href="#">Edibles</a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Product</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="./product.php?sort='name'">All Product</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="./product.php?sort=drops">Drops</a>
+              <a class="dropdown-item" href="./product.php?sort=smoke">Smoke</a>
+              <a class="dropdown-item" href="./product.php?sort=edible">Edibles</a>
             </div>
-        </li>
+          </li>
         <li class="nav-item">
           <a class="nav-link active" href="#">Contact</a>
         </li>
