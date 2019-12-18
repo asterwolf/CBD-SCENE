@@ -17,17 +17,13 @@
   </head>
   <body class ="body">
     <div class="container home">
-<<<<<<< HEAD
-    <div class="jumbotron" style="background-color:rgb(249,249,249);">
-=======
       <div class="jumbotron">
->>>>>>> ec8b217fcf79e9c65f262cab8b333c6fc6514eba
         <img class = "logo" src = "./images/logo.png"> </img>
       </div>
       <div class = "navigation">
         <ul class="nav nav-pills justify-content-end">
           <li class="nav-item">
-            <a class="nav-link" href="./index.html">Home</a>
+            <a class="nav-link" href="./home.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./about.html">About</a>
@@ -46,7 +42,7 @@
             <a class="nav-link " href="./contact.html">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="./cart.html">Cart</a>
+            <a class="nav-link " href="./cart.php">Cart</a>
           </li>
         </ul>
       </div>

@@ -16,13 +16,13 @@
   </head>
 <body class="body">
   <div class="container home">
-    <div class="jumbotron" style="background-color:rgb(249,249,249);">
+    <div class="jumbotron">
       <img class = "logo" src = "./images/logo.png"> </img>
     </div>
     <div class = "navigation">
       <ul class="nav nav-pills justify-content-end">
         <li class="nav-item">
-          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./home.html">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="about.html">About</a>
@@ -41,7 +41,7 @@
           <a class="nav-link " href="./contact.html">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Cart</a>
+          <a class="nav-link active" href="./cart.html">Cart</a>
         </li>
       </ul>
     </div>
@@ -59,7 +59,11 @@
   						</tr>
 					  </thead>
 					  <tbody>
-              <tr>
+              <?php
+              include_once 'loadProduct.php';
+              loadCart();
+              ?>
+              <!-- <tr>
                 <td data-th="Product">
   								<div class="row">
   									<div class="col-sm-3 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
@@ -78,7 +82,7 @@
   								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
   								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
   							</td>
-  						</tr>
+  						</tr> -->
   					</tbody>
   					<tfoot>
   						<tr class="visible-xs">
