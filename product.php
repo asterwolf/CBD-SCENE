@@ -31,11 +31,11 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Product</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="./products.html"> All Product</a>
+              <a class="dropdown-item" href="./product.php"> All Product</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Drops</a>
-              <a class="dropdown-item" href="#">Smoke</a>
-              <a class="dropdown-item" href="#">Edibles</a>
+              <a class="dropdown-item" href="?sort=drops">Drops</a>
+              <a class="dropdown-item" href="?sort=smoke">Smoke</a>
+              <a class="dropdown-item" href="?sort=edibles">Edibles</a>
             </div>
           </li>
           <li class="nav-item">
@@ -53,15 +53,15 @@
     Filter Results
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Price(High to Low)</a>
-    <a class="dropdown-item" href="#">Price(Low to High)</a>
+    <a class="dropdown-item" href="product.php?sort=DESC">Price(High to Low)</a>
+    <a class="dropdown-item" href="product.php?sort=ASC">Price(Low to High)</a>
   </div>
 </div>
       <br>
     <div class = "product">
       <?php
         include_once 'loadProduct.php';
-        loadAll();
+        loadAll($_GET['sort']);
       ?>
     </div>
   </div>

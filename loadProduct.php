@@ -1,9 +1,6 @@
  <?php
 include('config.php');
 
-// TODO: create function that eliminates special characters to find image name
-function getImage($productName){}
-
 function writeMsg($action, $msg) {
     echo "<script>console.log('" . $action . ": " . $msg . "' );</script>";
 }
@@ -45,7 +42,7 @@ function viewProduct(){
         }
 }
 
-function loadAll(){
+function loadAll($option){
     try {
         $conn = new PDO("pgsql:host=" . hostname . ";dbname=" . db .";", username, password);
         // set the PDO error mode to exception
@@ -53,8 +50,22 @@ function loadAll(){
         if ($conn){
             // echo "Connected successfully\n";
 
-            $sql = "SELECT * FROM product";
-            writeMsg("QUERY", $sql);
+            $sql = "SELECT * FROM product ";
+
+            switch ($option) {
+                case 'drops':
+                case 'edible':
+                case 'smoke':
+                    $sql .= "name WHERE type='" . $option . "'";
+                    break;
+                case 'DESC':
+                case 'ASC':
+                    $sql .= "ORDER BY price " . $option;
+                    break;
+                default :
+                    $sql .= "ORDER BY name";
+            }
+            writeMsg("QUERY", $option);
 
             $numOfColumns = 0;
             foreach ($conn->query($sql) as $row) {
@@ -65,6 +76,7 @@ function loadAll(){
                 }
 
                 echo "<div class=\"col-sm\">";
+                echo "<br>";
                 echo "<div class=\"card border border-dark\" style=\"width: 18rem;  \">";
                 echo "<img src=\"./images/" . $row['name'] . ".jpg\"  class=\"card-img-top\" alt=\"...\">";
                 echo "<div class=\"card-body\">";
