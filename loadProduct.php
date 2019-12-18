@@ -49,7 +49,6 @@ function loadAll($option){
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         if ($conn){
             // echo "Connected successfully\n";
-
             $sql = "SELECT * FROM product ";
 
             switch ($option) {

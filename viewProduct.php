@@ -33,7 +33,7 @@
               <a class="dropdown-item" href="./product.php">All Product</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="product?sort=drops">Drops</a>
-              <a class="dropdown-item" href="product?sort=edibles">Smoke</a>
+              <a class="dropdown-item" href="product?sort=edible">Smoke</a>
               <a class="dropdown-item" href="product?sort=smoke">Edibles</a>
               </div>
           </li>

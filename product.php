@@ -35,7 +35,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="?sort=drops">Drops</a>
               <a class="dropdown-item" href="?sort=smoke">Smoke</a>
-              <a class="dropdown-item" href="?sort=edibles">Edibles</a>
+              <a class="dropdown-item" href="?sort=edible">Edibles</a>
             </div>
           </li>
           <li class="nav-item">
