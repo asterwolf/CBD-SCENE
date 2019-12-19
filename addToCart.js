@@ -1,8 +1,7 @@
 function addToCart(key, value) {
-    sessionStorage.setItem(key, value);
-    alert("Added to Cart!");
+    sessionStorage.setItem("productId", key);
+    sessionStorage.setItem("quantity", value);
 }
 
 function loadCart(){
-
 }

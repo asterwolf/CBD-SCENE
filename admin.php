@@ -17,7 +17,7 @@
 <div class = "navigation">
   <ul class="nav nav-pills justify-content-end">
     <li class="nav-item">
-      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="home.html">Home</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="about.html">About</a>
@@ -80,7 +80,7 @@
         <h2> Remove Product</h2>
         <div class = "product">
           <?php
-            include_once 'loadProduct.php';
+            include_once 'removeProduct.php';
             loadAll($_GET['sort']);
           ?>
         </div>

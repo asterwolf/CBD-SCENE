@@ -1,5 +1,5 @@
  <?php
-include('../config.php');
+include('./config.php');
 
 function writeMsg($action, $msg) {
     echo "<script>console.log('" . $action . ": " . $msg . "' );</script>";
@@ -28,7 +28,7 @@ function viewProduct(){
             echo "<h6><strong>  Quantity </strong> <h6>";
             echo "<input type=\"number\" class=\"count\" id=\"qty\" value=\"1\">";
             echo "</div>";
-            echo "<button type=\"button\" class=\"btn btn-primary\" onclick='addToCart(\"" . $row['name'] . "\", document.getElementById(\"qty\").value)'>Add to Cart</button>";
+            echo "<button type=\"button\" class=\"btn btn-primary\" onclick='addToCart(\"" . $row['id'] . "\", document.getElementById(\"qty\").value)'>Add to Cart</button>";
             echo "</form>";
             echo "</div>";
 
