@@ -41,6 +41,24 @@ function viewProduct(){
         }
 }
 
+function addItem(){
+    try {
+        $conn = new PDO("pgsql:host=" . hostname . ";dbname=" . db .";", username, password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        if ($conn){
+            $sql = "INSERT INTO product (name, price, description, type) VALUES (".$_POST['name'].",".$_POST['description'].",".$_POST['description'].", ".$_POST['type'];
+            $row = $conn->query($sql)->fetch();
+
+        }
+    }
+    catch(PDOException $e)
+        {
+        echo "Connection failed: " . $e->getMessage();
+        echo "\n";
+        }
+}
+
 function loadCart($id){
     try {
         $conn = new PDO("pgsql:host=" . hostname . ";dbname=" . db .";", username, password);
