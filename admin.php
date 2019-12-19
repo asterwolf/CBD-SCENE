@@ -54,6 +54,20 @@
     <div class="tab-content" id="v-pills-tabContent">
       <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
           <h2> Dashboard</h2>
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Most Bought Item</a>
+
+              <h6> product </h6>
+              <hr>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Least Bought Item</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Total Sales</a>
+            </li>
+          </ul>
       </div>
       <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
         <h2> Add Product </h2>
