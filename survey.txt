@@ -1,12 +1,42 @@
-Survey/Assessment Questions:
+Survey/Assessment Questions
 
-Diego Diaz:
+In this course, to what degree do you think you have the achieved each
+of the following 4 outcomes? Your answer is between 1 (lowest) and 10
+(highest). Each member of the team should have their own answers.
 
-3b. 8
-3e. 8
-3f. 8
-3j. 9
+(3b) An ability to analyze a problem, and identify and define the
+computing requirements and specifications appropriate to its solution.
 
-Chad Manning:
+Diego Diaz: 8
+Alec Sherlock: 10
+Chad Manning: 10
 
-Alec Sherlock:
+
+
+(3e) An ability to design, implement and evaluate a computer-based
+system, process, component, or program to meet desired needs. An
+ability to understand the analysis, design, and implementation of a
+computerized solution to a real-life problem.
+
+Diego Diaz: 8
+Alec Sherlock: 10
+Chad Manning: 10
+
+
+(3f) An ability to communicate effectively with a range of audiences.
+An ability to write a technical document such as a software
+specification white paper or a user manual.
+
+Diego Diaz: 8
+Alec Sherlock: 8
+Chad Manning: 10
+
+
+(3j) An ability to apply mathematical foundations, algorithmic
+principles, and computer science theory in the modeling and design of
+computer-based systems in a way that demonstrates comprehension of the
+tradeoffs involved in design choices.
+
+Diego Diaz: 9
+Alec Sherlock: 10
+Chad Manning: 10
