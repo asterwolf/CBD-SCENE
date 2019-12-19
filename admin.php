@@ -71,8 +71,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">Discription:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="exampleFormControlTextarea1">Price:</label>
+            <input class="form-control" type="text" placeholder="Price">
           </div>
           <button type="submit" class="btn btn-primary">Add</button>
         </form>

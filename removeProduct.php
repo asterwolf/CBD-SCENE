@@ -45,7 +45,7 @@ function loadAll($option){
                 echo "<h5 class=\"card-title\">" . $row['name'] . "</h5>";
                 echo "<p class=\"card-text\">" . $row['description'] . "</p>";
                 echo "<p class=\"card-text\">$" . $row['price'] / 100 . "</p>";
-                echo "<a href=\"viewProduct.php?name='" . $row['name'] . "'\" class=\"btn btn-primary\">Remove  Product</a>";
+                echo "<a href=\"viewProduct.php?name='" . $row['name'] . "'\" class=\"btn btn-primary\">View   Product</a>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";
