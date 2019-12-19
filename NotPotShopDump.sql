@@ -5,7 +5,7 @@
 -- Dumped from database version 11.5
 -- Dumped by pg_dump version 12.0 (Ubuntu 12.0-2.pgdg18.04+1)
 
--- Started on 2019-12-18 19:02:07 PST
+-- Started on 2019-12-18 23:53:55 PST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,7 +19,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 3834 (class 1262 OID 16401)
+-- TOC entry 3864 (class 1262 OID 16401)
 -- Name: not_pot_shop; Type: DATABASE; Schema: -; Owner: master
 --
 
@@ -42,7 +42,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 201 (class 1255 OID 16424)
+-- TOC entry 206 (class 1255 OID 16424)
 -- Name: uppercase_name(); Type: FUNCTION; Schema: public; Owner: cmanning
 --
 
@@ -58,6 +58,48 @@ END;$$;
 ALTER FUNCTION public.uppercase_name() OWNER TO cmanning;
 
 SET default_tablespace = '';
+
+--
+-- TOC entry 202 (class 1259 OID 24651)
+-- Name: address; Type: TABLE; Schema: public; Owner: cmanning
+--
+
+CREATE TABLE public.address (
+    id integer NOT NULL,
+    customer integer NOT NULL,
+    city text NOT NULL,
+    state text NOT NULL,
+    street text NOT NULL,
+    zip integer NOT NULL
+);
+
+
+ALTER TABLE public.address OWNER TO cmanning;
+
+--
+-- TOC entry 201 (class 1259 OID 24649)
+-- Name: address_id_seq; Type: SEQUENCE; Schema: public; Owner: cmanning
+--
+
+CREATE SEQUENCE public.address_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.address_id_seq OWNER TO cmanning;
+
+--
+-- TOC entry 3866 (class 0 OID 0)
+-- Dependencies: 201
+-- Name: address_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cmanning
+--
+
+ALTER SEQUENCE public.address_id_seq OWNED BY public.address.id;
+
 
 --
 -- TOC entry 197 (class 1259 OID 16407)
@@ -94,7 +136,7 @@ CREATE SEQUENCE public.customer_id_seq
 ALTER TABLE public.customer_id_seq OWNER TO cmanning;
 
 --
--- TOC entry 3836 (class 0 OID 0)
+-- TOC entry 3867 (class 0 OID 0)
 -- Dependencies: 196
 -- Name: customer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cmanning
 --
@@ -114,6 +156,61 @@ CREATE TABLE public.managers (
 
 
 ALTER TABLE public.managers OWNER TO cmanning;
+
+--
+-- TOC entry 204 (class 1259 OID 24667)
+-- Name: ordered_product; Type: TABLE; Schema: public; Owner: cmanning
+--
+
+CREATE TABLE public.ordered_product (
+    id integer NOT NULL,
+    order_id integer NOT NULL,
+    product_id integer NOT NULL,
+    quantity integer NOT NULL
+);
+
+
+ALTER TABLE public.ordered_product OWNER TO cmanning;
+
+--
+-- TOC entry 205 (class 1259 OID 24678)
+-- Name: most_popular_products; Type: VIEW; Schema: public; Owner: cmanning
+--
+
+CREATE VIEW public.most_popular_products WITH (security_barrier='false') AS
+ SELECT ordered_product.product_id,
+    ordered_product.quantity
+   FROM public.ordered_product
+  GROUP BY ordered_product.product_id, ordered_product.quantity
+  ORDER BY (sum(ordered_product.quantity)) DESC;
+
+
+ALTER TABLE public.most_popular_products OWNER TO cmanning;
+
+--
+-- TOC entry 203 (class 1259 OID 24665)
+-- Name: ordered_product_id_seq; Type: SEQUENCE; Schema: public; Owner: cmanning
+--
+
+CREATE SEQUENCE public.ordered_product_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.ordered_product_id_seq OWNER TO cmanning;
+
+--
+-- TOC entry 3868 (class 0 OID 0)
+-- Dependencies: 203
+-- Name: ordered_product_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cmanning
+--
+
+ALTER SEQUENCE public.ordered_product_id_seq OWNED BY public.ordered_product.id;
+
 
 --
 -- TOC entry 199 (class 1259 OID 24599)
@@ -148,7 +245,7 @@ CREATE SEQUENCE public.product_id_seq
 ALTER TABLE public.product_id_seq OWNER TO cmanning;
 
 --
--- TOC entry 3837 (class 0 OID 0)
+-- TOC entry 3869 (class 0 OID 0)
 -- Dependencies: 198
 -- Name: product_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cmanning
 --
@@ -157,7 +254,15 @@ ALTER SEQUENCE public.product_id_seq OWNED BY public.product.id;
 
 
 --
--- TOC entry 3694 (class 2604 OID 16410)
+-- TOC entry 3713 (class 2604 OID 24654)
+-- Name: address id; Type: DEFAULT; Schema: public; Owner: cmanning
+--
+
+ALTER TABLE ONLY public.address ALTER COLUMN id SET DEFAULT nextval('public.address_id_seq'::regclass);
+
+
+--
+-- TOC entry 3711 (class 2604 OID 16410)
 -- Name: customer id; Type: DEFAULT; Schema: public; Owner: cmanning
 --
 
@@ -165,7 +270,15 @@ ALTER TABLE ONLY public.customer ALTER COLUMN id SET DEFAULT nextval('public.cus
 
 
 --
--- TOC entry 3695 (class 2604 OID 24602)
+-- TOC entry 3714 (class 2604 OID 24670)
+-- Name: ordered_product id; Type: DEFAULT; Schema: public; Owner: cmanning
+--
+
+ALTER TABLE ONLY public.ordered_product ALTER COLUMN id SET DEFAULT nextval('public.ordered_product_id_seq'::regclass);
+
+
+--
+-- TOC entry 3712 (class 2604 OID 24602)
 -- Name: product id; Type: DEFAULT; Schema: public; Owner: cmanning
 --
 
@@ -173,7 +286,25 @@ ALTER TABLE ONLY public.product ALTER COLUMN id SET DEFAULT nextval('public.prod
 
 
 --
--- TOC entry 3825 (class 0 OID 16407)
+-- TOC entry 3856 (class 0 OID 24651)
+-- Dependencies: 202
+-- Data for Name: address; Type: TABLE DATA; Schema: public; Owner: cmanning
+--
+
+INSERT INTO public.address (id, customer, city, state, street, zip) VALUES (1, 1, 'Charleston', 'SC', '733 Ridge Oak Trail', 67146);
+INSERT INTO public.address (id, customer, city, state, street, zip) VALUES (2, 2, 'Oklahoma City', 'OK', '818 Hooker Avenue', 45529);
+INSERT INTO public.address (id, customer, city, state, street, zip) VALUES (3, 3, 'Durham', 'NC', '327 Roxbury Junction', 10833);
+INSERT INTO public.address (id, customer, city, state, street, zip) VALUES (4, 4, 'Memphis', 'TN', '2464 Alpine Crossing', 14466);
+INSERT INTO public.address (id, customer, city, state, street, zip) VALUES (5, 5, 'Peoria', 'IL', '311 Norway Maple Center', 30627);
+INSERT INTO public.address (id, customer, city, state, street, zip) VALUES (6, 6, 'Sacramento', 'CA', '76 8th Point', 22021);
+INSERT INTO public.address (id, customer, city, state, street, zip) VALUES (7, 7, 'Dallas', 'TX', '943 Pond Drive', 58869);
+INSERT INTO public.address (id, customer, city, state, street, zip) VALUES (8, 8, 'Las Vegas', 'NV', '3675 Eagan Park', 35499);
+INSERT INTO public.address (id, customer, city, state, street, zip) VALUES (9, 9, 'Washington', 'DC', '4 Shoshone Pass', 52812);
+INSERT INTO public.address (id, customer, city, state, street, zip) VALUES (10, 10, 'Tyler', 'TX', '34318 Grayhawk Crossing', 26538);
+
+
+--
+-- TOC entry 3851 (class 0 OID 16407)
 -- Dependencies: 197
 -- Data for Name: customer; Type: TABLE DATA; Schema: public; Owner: cmanning
 --
@@ -192,7 +323,7 @@ INSERT INTO public.customer (first_name, middle_name, last_name, birthdate, emai
 
 
 --
--- TOC entry 3828 (class 0 OID 24608)
+-- TOC entry 3854 (class 0 OID 24608)
 -- Dependencies: 200
 -- Data for Name: managers; Type: TABLE DATA; Schema: public; Owner: cmanning
 --
@@ -201,7 +332,20 @@ INSERT INTO public.managers (username, password) VALUES ('tpickles', 'tpickles')
 
 
 --
--- TOC entry 3827 (class 0 OID 24599)
+-- TOC entry 3858 (class 0 OID 24667)
+-- Dependencies: 204
+-- Data for Name: ordered_product; Type: TABLE DATA; Schema: public; Owner: cmanning
+--
+
+INSERT INTO public.ordered_product (id, order_id, product_id, quantity) VALUES (1, 2, 17, 1);
+INSERT INTO public.ordered_product (id, order_id, product_id, quantity) VALUES (2, 3, 13, 2);
+INSERT INTO public.ordered_product (id, order_id, product_id, quantity) VALUES (3, 1, 10, 3);
+INSERT INTO public.ordered_product (id, order_id, product_id, quantity) VALUES (4, 3, 12, 1);
+INSERT INTO public.ordered_product (id, order_id, product_id, quantity) VALUES (5, 1, 4, 3);
+
+
+--
+-- TOC entry 3853 (class 0 OID 24599)
 -- Dependencies: 199
 -- Data for Name: product; Type: TABLE DATA; Schema: public; Owner: cmanning
 --
@@ -227,7 +371,16 @@ INSERT INTO public.product (id, name, price, description, type) VALUES (18, 'The
 
 
 --
--- TOC entry 3838 (class 0 OID 0)
+-- TOC entry 3870 (class 0 OID 0)
+-- Dependencies: 201
+-- Name: address_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cmanning
+--
+
+SELECT pg_catalog.setval('public.address_id_seq', 1, false);
+
+
+--
+-- TOC entry 3871 (class 0 OID 0)
 -- Dependencies: 196
 -- Name: customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cmanning
 --
@@ -236,7 +389,16 @@ SELECT pg_catalog.setval('public.customer_id_seq', 7, true);
 
 
 --
--- TOC entry 3839 (class 0 OID 0)
+-- TOC entry 3872 (class 0 OID 0)
+-- Dependencies: 203
+-- Name: ordered_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cmanning
+--
+
+SELECT pg_catalog.setval('public.ordered_product_id_seq', 1, false);
+
+
+--
+-- TOC entry 3873 (class 0 OID 0)
 -- Dependencies: 198
 -- Name: product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cmanning
 --
@@ -245,7 +407,7 @@ SELECT pg_catalog.setval('public.product_id_seq', 18, true);
 
 
 --
--- TOC entry 3701 (class 2606 OID 24615)
+-- TOC entry 3720 (class 2606 OID 24615)
 -- Name: managers Managers_pkey; Type: CONSTRAINT; Schema: public; Owner: cmanning
 --
 
@@ -254,7 +416,16 @@ ALTER TABLE ONLY public.managers
 
 
 --
--- TOC entry 3697 (class 2606 OID 16415)
+-- TOC entry 3722 (class 2606 OID 24659)
+-- Name: address address_pkey; Type: CONSTRAINT; Schema: public; Owner: cmanning
+--
+
+ALTER TABLE ONLY public.address
+    ADD CONSTRAINT address_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3716 (class 2606 OID 16415)
 -- Name: customer customer_pkey; Type: CONSTRAINT; Schema: public; Owner: cmanning
 --
 
@@ -263,7 +434,16 @@ ALTER TABLE ONLY public.customer
 
 
 --
--- TOC entry 3699 (class 2606 OID 24607)
+-- TOC entry 3724 (class 2606 OID 24672)
+-- Name: ordered_product ordered_product_pkey; Type: CONSTRAINT; Schema: public; Owner: cmanning
+--
+
+ALTER TABLE ONLY public.ordered_product
+    ADD CONSTRAINT ordered_product_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3718 (class 2606 OID 24607)
 -- Name: product product_pkey; Type: CONSTRAINT; Schema: public; Owner: cmanning
 --
 
@@ -272,7 +452,7 @@ ALTER TABLE ONLY public.product
 
 
 --
--- TOC entry 3702 (class 2620 OID 16427)
+-- TOC entry 3727 (class 2620 OID 16427)
 -- Name: customer toUpper; Type: TRIGGER; Schema: public; Owner: cmanning
 --
 
@@ -280,7 +460,25 @@ CREATE TRIGGER "toUpper" BEFORE INSERT OR UPDATE OF first_name, last_name ON pub
 
 
 --
--- TOC entry 3835 (class 0 OID 0)
+-- TOC entry 3725 (class 2606 OID 24660)
+-- Name: address customer_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: cmanning
+--
+
+ALTER TABLE ONLY public.address
+    ADD CONSTRAINT customer_id_fk FOREIGN KEY (customer) REFERENCES public.customer(id);
+
+
+--
+-- TOC entry 3726 (class 2606 OID 24673)
+-- Name: ordered_product product_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: cmanning
+--
+
+ALTER TABLE ONLY public.ordered_product
+    ADD CONSTRAINT product_id_fk FOREIGN KEY (product_id) REFERENCES public.product(id);
+
+
+--
+-- TOC entry 3865 (class 0 OID 0)
 -- Dependencies: 3
 -- Name: SCHEMA public; Type: ACL; Schema: -; Owner: master
 --
@@ -291,7 +489,7 @@ GRANT ALL ON SCHEMA public TO master;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2019-12-18 19:02:15 PST
+-- Completed on 2019-12-18 23:54:07 PST
 
 --
 -- PostgreSQL database dump complete
