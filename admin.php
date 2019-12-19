@@ -74,7 +74,7 @@
             <label for="exampleFormControlTextarea1">Price:</label>
             <input class="form-control" type="text" placeholder="Price">
           </div>
-          <button type="submit" class="btn btn-primary">Add</button>
+          <button type="submit" class="btn btn-primary" formmethod="post" onclick()="">Add</button>
         </form>
         <br>
         <h2> Remove Product</h2>
